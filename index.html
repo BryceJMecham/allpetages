@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Age Calculator</title>
+    <link rel="stylesheet" href="styleGPT.css">
+    <script src="script.js" defer></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1602846243409098"
+     crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="Images/Pet Age Calculator Logo (Wordless).png">
+</head>
+<!-- Google tag (gtag.js) -->
+ <script async src="cookies.js"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PS6KTWR5VN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PS6KTWR5VN');
+</script> -->
+
+<body>
+    <header>
+        <!-- Navigation -->
+        <nav class="navbar">
+            <!-- Hidden checkbox -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+            <!-- Hamburger / X icon -->
+            <label for="menu-toggle" class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            </label>
+
+            <!-- Navigation links -->
+            <ul class="nav-links">
+            
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Pet Age Calculator</h1>
+        <p>Choose your pet's species and enter their age to see how old they are in human years!</p>
+        <div id="form">
+            <div id="speciesDiv">
+                <label for="species">Species: </label>
+                <select id="species">
+                    <option value="">-- Select a pet --</option>
+                    <option value="africanGrey">African Grey Parrot</option>
+                    <option value="angelfish">Angelfish</option>
+                    <option value="axolotl">Axolotl</option>
+                    <option value="ballPython">Ball Python</option>
+                    <option value="beardedDragon">Bearded Dragon</option>
+                    <option value="bettaFish">Betta Fish</option>
+                    <option value="boaConstrictor">Boa Constrictor</option>
+                    <option value="budgerigar">Budgerigar (Budgie / Parakeet)</option>
+                    <option value="canary">Canary</option>
+                    <option value="cat">Cat</option>
+                    <option value="chicken">Chicken</option>
+                    <option value="chinchilla">Chinchilla</option>
+                    <option value="cichlid">Cichlid</option>
+                    <option value="cockatiel">Cockatiel</option>
+                    <option value="cockatoo">Cockatoo</option>
+                    <option value="cornSnake">Corn Snake</option>
+                    <option value="degu">Degu</option>
+                    <option value="dog">Dog</option>
+                    <option value="dove">Dove</option>
+                    <option value="duck">Duck</option>
+                    <option value="ferret">Ferret</option>
+                    <option value="finch">Finch</option>
+                    <option value="frog">Frog (pet species)</option>
+                    <option value="gecko">Gecko (general)</option>
+                    <option value="gerbil">Gerbil</option>
+                    <option value="goat">Goat (pet / pygmy)</option>
+                    <option value="goldfish">Goldfish</option>
+                    <option value="goose">Goose</option>
+                    <option value="guineaPig">Guinea Pig</option>
+                    <option value="guppy">Guppy</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="hedgehog">Hedgehog</option>
+                    <option value="hermitCrab">Hermit Crab</option>
+                    <option value="horse">Horse</option>
+                    <option value="iguana">Iguana</option>
+                    <option value="kingSnake">King Snake</option>
+                    <option value="koiFish">Koi Fish</option>
+                    <option value="leopardGecko">Leopard Gecko</option>
+                    <option value="lizard">Lizard (general)</option>
+                    <option value="lovebird">Lovebird</option>
+                    <option value="macaw">Macaw</option>
+                    <option value="miniPig">Mini / Micro Pig</option>
+                    <option value="molly">Molly</option>
+                    <option value="mouse">Mouse</option>
+                    <option value="newt">Newt</option>
+                    <option value="parrot">Parrot (general)</option>
+                    <option value="pheasant">Pheasant</option>
+                    <option value="pigeon">Pigeon</option>
+                    <option value="pony">Pony</option>
+                    <option value="potbellyPig">Pot-bellied Pig</option>
+                    <option value="prayingMantis">Praying Mantis</option>
+                    <option value="pythonLarge">Large Python (other species)</option>
+                    <option value="quail">Quail</option>
+                    <option value="rabbit">Rabbit</option>
+                    <option value="rat">Rat</option>
+                    <option value="scorpion">Scorpion</option>
+                    <option value="sheep">Sheep (pet / miniature)</option>
+                    <option value="shrimp">Freshwater Shrimp</option>
+                    <option value="snail">Giant Land Snail</option>
+                    <option value="snake">Snake (general)</option>
+                    <option value="starfish">Starfish (marine hobbyist)</option>
+                    <option value="stickInsect">Stick Insect</option>
+                    <option value="sugarGlider">Sugar Glider</option>
+                    <option value="tarantula">Tarantula</option>
+                    <option value="tetra">Tetra</option>
+                    <option value="toad">Toad (pet)</option>
+                    <option value="tortoise">Tortoise</option>
+                    <option value="turtle">Turtle</option>
+                    <option value="turkey">Turkey</option>
+                </select>
+            </div>
+            <div id="ageDiv">
+                <label for="age">Age: </label>
+                <input  type="number" value="0" step="1" name="age" oninput="this.value = Math.floor(this.value)" id="years">
+                <span>years </span>
+                <input  type="number" value="0" step="1" name="age" oninput="this.value = Math.floor(this.value)" id="months">
+                <span>months</span>
+            </div>
+            <button id="submit">Submit</button>
+        </div>
+        <div id="result"></div>
+    </main>
+    <section class="articles">
+        <div class="article"><a href="greengrasschews.html">
+            <img src="Images/Calcifer_Box.JPG" alt="Callie">
+            <h3>Green Grass Chews</h3>
+        </a></div>
+        <div class="article"><a href="noscoot.html">
+            <img src="Images/Queenie4.JPEG" alt="Queenie">
+            <h3>How to Avoid Scooting</h3>
+        </a></div>
+    </section>
+
+    <footer>
+        <nav>
+            <a href="articles.html">Articles</a>
+            <a href="privacypolicy.html">Privacy Policy</a>
+        </nav>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner"></div>
+
+    <!-- Manage Cookies Floating Icon -->
+    <button id="manage-cookies" title="Manage Cookies">🍪</button>
+
+</body>
+</html>
+
+<!-- 
+*Consider replacing geolocation detection with server-side detection or self-declaration (client-side APIs like ipapi are not always precise enough for compliance-grade consent gating).
+    *Not possible without my own web-server
+
+Add a “Do Not Sell or Share My Personal Information” link in the footer (mandatory under CPRA §1798.135).
+
+
+Mention in your Privacy Policy that users can exercise rights via contact (email) and that analytics and marketing data qualify as “personal data” under the law.
+-->
