@@ -1,6 +1,8 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: linear-gradient(to bottom right, #e0f7f4, #f9f9f9);
+  background-attachment: fixed;
+  background-size: cover;
   color: #2d3a3a;
   display: flex;
   flex-direction: column;
@@ -17,19 +19,20 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 0;
+  margin: 0 auto;
+  width: 100%;
 }
 
 
 
 /* ===== Main Container ===== */
-#form, .articles {
+#form, .articles, form {
   background: #ffffffcc;
   border-radius: 20px;
   padding: 30px 40px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  max-width: 300px;
+  max-width: 350px;
   width: 100%;
 }
 
@@ -55,7 +58,7 @@ label {
 }
 
 select,
-input[type="number"] {
+input[type="number"], input[type="text"], input[type="email"], textarea, input[type="date"] {
   font-size: 1rem;
   border: 1px solid #b8dcd3;
   border-radius: 8px;
@@ -66,8 +69,18 @@ input[type="number"] {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+select,
+input[type="number"], input[type="date"] {
+  text-align: center;
+}
+
+textarea {
+  height: 150px;
+  width: 250px;
+}
+
 select:focus,
-input[type="number"]:focus {
+input[type="number"]:focus, input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
   border-color: #6ec5b8;
   box-shadow: 0 0 5px rgba(110, 197, 184, 0.6);
   outline: none;
@@ -83,7 +96,7 @@ span {
 }
 
 /* ===== Submit Button ===== */
-button {
+button, input[type="submit"] {
   background-color: #6ec5b8;
   color: white;
   font-weight: bold;
@@ -94,7 +107,7 @@ button {
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-button:hover {
+button:hover, input[type="submit"]:hover {
   background-color: #58b0a5;
 }
 
@@ -114,18 +127,18 @@ button:active {
 /* ===== Articles Section ===== */
 .articles {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
     align-content: space-evenly;
     gap: 30px;
-    max-width: 90vw;
+    max-width: 90%;
     margin: 50px 0;
 }
 
 .article {
     border-radius: 5px;
     box-shadow: 0 0 8px 3px rgb(212, 212, 212);
-    width: 20vw;
+    width: 20%;
     min-width: 170px;
     max-width: 220px;
     cursor: pointer;
@@ -167,8 +180,9 @@ button:active {
 /* ===== Footer ===== */
 footer {
   width: 100%;
-  padding: 100px;
+  padding: 100px 0;
   background-color: #236f5ec4;
+  margin-top: 50px;
 }
 
 nav {
@@ -270,23 +284,19 @@ nav a:hover {
 .hidden { display: none !important; 
 }
 
-td {
-  padding-left: 10px;
-  padding-right: 10px;
-}
+
 
 
 /* ===== Menu Navbar ===== */
 .navbar {
   position: fixed;
   top: 0;
-  left: -35px;
+  left: 10px;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: start;
   align-items: center;
-  padding: 15px 50px 0 0 ;
-  margin-right: 20px;
+  padding: 15px 0 0 0 ;
   z-index: 1000;
 }
 
@@ -319,7 +329,7 @@ td {
 .nav-links {
   position: fixed;
   top: 0;
-  right: -260px;
+  left: -260px;
   width: 250px;
   height: 100vh;
   background-color: #f0f8f6;
@@ -330,7 +340,7 @@ td {
   list-style: none;
   margin: 0;
   padding: 0;
-  transition: right 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -351,7 +361,7 @@ td {
 
 /* ===== When Menu is Open (checkbox checked) ===== */
 .menu-toggle:checked ~ .nav-links {
-  right: 0;
+  left: 0;
 }
 
 /* Animate hamburger to X */
@@ -368,6 +378,88 @@ td {
 }
 
 
+/* ===== Radio Tabs ===== */
+.tabs {
+  display: block;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+/* Hide radio inputs */
+.tabs input[type="radio"] {
+  display: none;
+}
+
+/* Tab Labels */
+.tabs label {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0px;
+  background: #eaeaea;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Hover effect */
+.tabs label:hover {
+  background: #d4d4d4;
+}
+
+/* Active Tab */
+.tabs input[type="radio"]:checked + label {
+  background: #58b0a5; 
+  color: black;
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  background: #e8f1f0;
+  border: 2px solid #58b0a5;
+  border-radius: 0 8px 8px 8px;
+  padding: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Show the correct content when selected */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+
+/* Subtle fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Table ===== */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 500px; /* ensures layout structure on scroll */
+}
+
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+  white-space: nowrap; /* prevents text wrapping inside cells */
+}
+
+
+
 /* ===== Responsive Design ===== */
 @media (max-width: 600px) {
   #form {
@@ -380,5 +472,18 @@ td {
 
   p {
     font-size: 0.95rem;
+    padding: 10px;
+  }
+  /* Table */
+  th, td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  #form, .articles, .articlep, form {
+    width: 90%;
+    max-width: none;
+    margin: 50px 0;
+    padding: 20px 10px;
   }
 }

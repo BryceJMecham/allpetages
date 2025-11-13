@@ -40,94 +40,127 @@
             <ul class="nav-links">
             
             <li><a href="articles.html">Articles</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
             <li><a href="privacypolicy.html">Privacy Policy</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <h1>Pet Age Calculator</h1>
-        <p>Choose your pet's species and enter their age to see how old they are in human years!</p>
+        <p>Choose your pet's species (or their life expectancy) and enter their age (or birthday) to see how old they are in human years!</p>
         <div id="form">
             <div id="speciesDiv">
-                <label for="species">Species: </label>
-                <select id="species">
-                    <option value="">-- Select a pet --</option>
-                    <option value="africanGrey">African Grey Parrot</option>
-                    <option value="angelfish">Angelfish</option>
-                    <option value="axolotl">Axolotl</option>
-                    <option value="ballPython">Ball Python</option>
-                    <option value="beardedDragon">Bearded Dragon</option>
-                    <option value="bettaFish">Betta Fish</option>
-                    <option value="boaConstrictor">Boa Constrictor</option>
-                    <option value="budgerigar">Budgerigar (Budgie / Parakeet)</option>
-                    <option value="canary">Canary</option>
-                    <option value="cat">Cat</option>
-                    <option value="chicken">Chicken</option>
-                    <option value="chinchilla">Chinchilla</option>
-                    <option value="cichlid">Cichlid</option>
-                    <option value="cockatiel">Cockatiel</option>
-                    <option value="cockatoo">Cockatoo</option>
-                    <option value="cornSnake">Corn Snake</option>
-                    <option value="degu">Degu</option>
-                    <option value="dog">Dog</option>
-                    <option value="dove">Dove</option>
-                    <option value="duck">Duck</option>
-                    <option value="ferret">Ferret</option>
-                    <option value="finch">Finch</option>
-                    <option value="frog">Frog</option>
-                    <option value="gecko">Gecko</option>
-                    <option value="gerbil">Gerbil</option>
-                    <option value="goat">Goat (pygmy)</option>
-                    <option value="goldfish">Goldfish</option>
-                    <option value="goose">Goose</option>
-                    <option value="guineaPig">Guinea Pig</option>
-                    <option value="guppy">Guppy</option>
-                    <option value="hamster">Hamster</option>
-                    <option value="hedgehog">Hedgehog</option>
-                    <option value="hermitCrab">Hermit Crab</option>
-                    <option value="horse">Horse</option>
-                    <option value="iguana">Iguana</option>
-                    <option value="kingSnake">King Snake</option>
-                    <option value="koiFish">Koi Fish</option>
-                    <option value="leopardGecko">Leopard Gecko</option>
-                    <option value="lizard">Lizard</option>
-                    <option value="lovebird">Lovebird</option>
-                    <option value="macaw">Macaw</option>
-                    <option value="molly">Molly</option>
-                    <option value="mouse">Mouse</option>
-                    <option value="newt">Newt</option>
-                    <option value="parrot">Parrot</option>
-                    <option value="pheasant">Pheasant</option>
-                    <option value="pig">Pig</option>
-                    <option value="pigeon">Pigeon</option>
-                    <option value="pony">Pony</option>
-                    <option value="prayingMantis">Praying Mantis</option>
-                    <option value="pythonLarge">Python</option>
-                    <option value="quail">Quail</option>
-                    <option value="rabbit">Rabbit</option>
-                    <option value="rat">Rat</option>
-                    <option value="scorpion">Scorpion</option>
-                    <option value="sheep">Sheep</option>
-                    <option value="shrimp">Freshwater Shrimp</option>
-                    <option value="snail">Giant Land Snail</option>
-                    <option value="snake">Snake</option>
-                    <option value="starfish">Starfish</option>
-                    <option value="stickInsect">Stick Insect</option>
-                    <option value="sugarGlider">Sugar Glider</option>
-                    <option value="tarantula">Tarantula</option>
-                    <option value="tetra">Tetra</option>
-                    <option value="toad">Toad</option>
-                    <option value="tortoise">Tortoise</option>
-                    <option value="turtle">Turtle</option>
-                    <option value="turkey">Turkey</option>
-                </select>
+                <div class="tabs">
+                    <!-- Tab Controls -->
+                    <input type="radio" id="tab1" name="tab" checked>
+                    <label for="tab1">Species</label>
+
+                    <input type="radio" id="tab2" name="tab">
+                    <label for="tab2">Life Expectancy</label>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content" id="content1">
+                        <select id="species">
+                            <option value="">-- Select a pet --</option>
+                            <option value="africanGrey">African Grey Parrot</option>
+                            <option value="angelfish">Angelfish</option>
+                            <option value="axolotl">Axolotl</option>
+                            <option value="ballPython">Ball Python</option>
+                            <option value="beardedDragon">Bearded Dragon</option>
+                            <option value="bettaFish">Betta Fish</option>
+                            <option value="boaConstrictor">Boa Constrictor</option>
+                            <option value="budgerigar">Budgerigar (Budgie / Parakeet)</option>
+                            <option value="canary">Canary</option>
+                            <option value="cat">Cat</option>
+                            <option value="chicken">Chicken</option>
+                            <option value="chinchilla">Chinchilla</option>
+                            <option value="cichlid">Cichlid</option>
+                            <option value="cockatiel">Cockatiel</option>
+                            <option value="cockatoo">Cockatoo</option>
+                            <option value="cornSnake">Corn Snake</option>
+                            <option value="degu">Degu</option>
+                            <option value="dog">Dog</option>
+                            <option value="dove">Dove</option>
+                            <option value="duck">Duck</option>
+                            <option value="ferret">Ferret</option>
+                            <option value="finch">Finch</option>
+                            <option value="frog">Frog</option>
+                            <option value="gecko">Gecko</option>
+                            <option value="gerbil">Gerbil</option>
+                            <option value="goat">Goat (pygmy)</option>
+                            <option value="goldfish">Goldfish</option>
+                            <option value="goose">Goose</option>
+                            <option value="guineaPig">Guinea Pig</option>
+                            <option value="guppy">Guppy</option>
+                            <option value="hamster">Hamster</option>
+                            <option value="hedgehog">Hedgehog</option>
+                            <option value="hermitCrab">Hermit Crab</option>
+                            <option value="horse">Horse</option>
+                            <option value="iguana">Iguana</option>
+                            <option value="kingSnake">King Snake</option>
+                            <option value="koiFish">Koi Fish</option>
+                            <option value="leopardGecko">Leopard Gecko</option>
+                            <option value="lizard">Lizard</option>
+                            <option value="lovebird">Lovebird</option>
+                            <option value="macaw">Macaw</option>
+                            <option value="molly">Molly</option>
+                            <option value="mouse">Mouse</option>
+                            <option value="newt">Newt</option>
+                            <option value="parrot">Parrot</option>
+                            <option value="pheasant">Pheasant</option>
+                            <option value="pig">Pig</option>
+                            <option value="pigeon">Pigeon</option>
+                            <option value="pony">Pony</option>
+                            <option value="prayingMantis">Praying Mantis</option>
+                            <option value="pythonLarge">Python</option>
+                            <option value="quail">Quail</option>
+                            <option value="rabbit">Rabbit</option>
+                            <option value="rat">Rat</option>
+                            <option value="scorpion">Scorpion</option>
+                            <option value="sheep">Sheep</option>
+                            <option value="shrimp">Freshwater Shrimp</option>
+                            <option value="snail">Giant Land Snail</option>
+                            <option value="snake">Snake</option>
+                            <option value="starfish">Starfish</option>
+                            <option value="stickInsect">Stick Insect</option>
+                            <option value="sugarGlider">Sugar Glider</option>
+                            <option value="tarantula">Tarantula</option>
+                            <option value="tetra">Tetra</option>
+                            <option value="toad">Toad</option>
+                            <option value="tortoise">Tortoise</option>
+                            <option value="turtle">Turtle</option>
+                            <option value="turkey">Turkey</option>
+                        </select>
+                    </div>
+
+                    <div class="tab-content" id="content2">
+                        <input  type="number" value="0" step="1" name="lifeExpectancy" oninput="this.value = Math.floor(this.value)" id="lifeExpectancy">
+                        <span>years </span>
+                    </div>
+                </div>
             </div>
             <div id="ageDiv">
-                <label for="age">Age: </label>
-                <input  type="number" value="0" step="1" name="age" oninput="this.value = Math.floor(this.value)" id="years">
-                <span>years </span>
-                <input  type="number" value="0" step="1" name="age" oninput="this.value = Math.floor(this.value)" id="months">
-                <span>months</span>
+                <div class="tabs">
+                    <!-- Tab2 Controls -->
+                    <input type="radio" id="tab3" name="tab2" checked>
+                    <label for="tab3">Age</label>
+
+                    <input type="radio" id="tab4" name="tab2">
+                    <label for="tab4">Birthday</label>
+
+                    <!-- Tab2 Content -->
+                    <div class="tab-content" id="content3">
+                        <input  type="number" value="0" step="1" name="age" oninput="this.value = Math.floor(this.value)" id="years">
+                        <span>years </span>
+                        <input  type="number" value="0" step="1" name="age" oninput="this.value = Math.floor(this.value)" id="months">
+                        <span>months</span>
+                    </div>
+
+                    <div class="tab-content" id="content4">
+                        <input type="date" id="birthday">
+                    </div>
+                </div>
+                
             </div>
             <button id="submit">Submit</button>
         </div>
@@ -135,11 +168,11 @@
     </main>
     <section class="articles">
         <div class="article"><a href="greengrasschews.html">
-            <img src="Images/Calcifer_Box.JPG" alt="Callie">
+            <img src="Images/Yard Burns.png" alt="Callie">
             <h3>Does Your Grass Have Yellow Pee Burns?</h3>
         </a></div>
         <div class="article"><a href="noscoot.html">
-            <img src="Images/Queenie4.JPEG" alt="Queenie">
+            <img src="Images/Dog Scooting.png" alt="Queenie">
             <h3>How to Help Your Dog Stop Scooting</h3>
         </a></div>
     </section>
@@ -147,6 +180,7 @@
     <footer>
         <nav>
             <a href="articles.html">Articles</a>
+            <a href="contact.html">Contact Us</a>
             <a href="privacypolicy.html">Privacy Policy</a>
         </nav>
     </footer>
@@ -159,19 +193,3 @@
 
 </body>
 </html>
-
-<!-- 
-    Place backlinks (other websites with links to your site, social media shares, etc.)
-    Mobile friendly
-        Menu
-        Table
-        Picture sizes
-        Responsive detection for mobile
-    Fast (Optimize images (use .webp format). Lazy-load images.)
-    
-    Contact us section
-    New Favicon
-
-    Switch for age v. birth and species v. life expectancy 
-    Add more pets
--->

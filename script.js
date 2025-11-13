@@ -3,6 +3,10 @@ const species_element = document.getElementById("species");
 const age_years_element = document.getElementById("years");
 const age_months_element = document.getElementById("months");
 const result_div = document.getElementById("result");
+const life_expectancy_element = document.getElementById("lifeExpectancy");
+const tab1 = document.getElementById("tab1"); //Species tab
+const tab3 = document.getElementById("tab3"); //Age tab
+const birthday_element = document.getElementById("birthday");
 const animals = {
     africanGrey: 60,
     angelfish: 10,
@@ -78,16 +82,50 @@ submit.addEventListener("click", function(){
     var species = species_element.value;
     var years= age_years_element.value;
     var months = age_months_element.value;
+    var life_expectancy = life_expectancy_element.value;
+    var age = 0; // age in human years
+    var age_decimal = calculateAgeDecimal(birthday_element.value);
 
     result_div.innerText = "";
-    const age = Math.floor(100 / animals[species] * (parseFloat(years) + parseFloat(months / 12)));
-    console.log(months)
-    if (species in animals) {
-        result_div.innerText = age + " years old";
+
+    // Sepecies tab checked
+    if (tab1.checked) {
+        // Age tab checked
+        if (tab3.checked) {
+            age = Math.floor(100 / animals[species] * (parseFloat(years) + parseFloat(months / 12)));
+            if (species in animals) {
+            result_div.innerText = age + " years old";
+            }
+            else {
+                result_div.innerHTML = "Select species from list";
+            }
+        }
+        // Birthday tab is checked
+        else {
+            age = Math.floor(100 / animals[species] * age_decimal);
+            if (species in animals) {
+            result_div.innerText = age + " years old";
+            }
+            else {
+                result_div.innerHTML = "Select species from list";
+            }
+        }
     }
+    // Life Expectancy tab checked
     else {
-        result_div.innerHTML = "Select species from list";
+        // Age tab checked
+        if (tab3.checked) {
+            age = Math.floor(100 / life_expectancy * (parseFloat(years) + parseFloat(months / 12)));
+            result_div.innerText = age + " years old";
+        }
+        // Birthday tab is checked
+        else {
+            age = Math.floor(100 / life_expectancy * age_decimal);
+            result_div.innerText = age + " years old";
+        }
     }
+
+    
 });
 
 species_element.addEventListener("change", function(){
@@ -99,3 +137,17 @@ age_years_element.addEventListener("change", function(){
 age_months_element.addEventListener("change", function(){
     result_div.innerText = "";
 });
+
+
+function calculateAgeDecimal(birthDate) {
+    const birth = new Date(birthDate); // Ensure birthDate is a Date object
+    const today = new Date();          // Current date
+
+    // Calculate difference in milliseconds
+    const diffMs = today - birth;
+
+    // Convert difference to age in years (1 year ≈ 365.2425 days to account for leap years)
+    const age = diffMs / (1000 * 60 * 60 * 24 * 365.2425);
+
+    return age;
+}
