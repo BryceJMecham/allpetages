@@ -10,6 +10,29 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1602846243409098"
      crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="Images/Pet Age Calculator Logo (Wordless).png">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "63wmFz1tv1YTAV-hk",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('service_a33g5sk', 'template_3liaget', this)
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 </head>
 <!-- Google tag (gtag.js) -->
  <!-- <script async src="cookies.js"></script> -->
@@ -48,19 +71,19 @@
     <main>
         <h1>Pet Age Calculator</h1>
         <p>Choose your pet's species (or their life expectancy) and enter their age (or birthday) to see how old they are in human years!</p>
-        <div id="form">
+        <form id="contact-form">
             <div id="speciesDiv">
                 <div class="tabs">
                     <!-- Tab Controls -->
-                    <input type="radio" id="tab1" name="tab" checked>
-                    <label for="tab1">Species</label>
+                    <input type="radio" id="speciesTab" name="tab" checked>
+                    <label for="speciesTab">Species</label>
 
-                    <input type="radio" id="tab2" name="tab">
-                    <label for="tab2">Life Expectancy</label>
+                    <input type="radio" id="expectancyTab" name="tab">
+                    <label for="expectancyTab">Life Expectancy</label>
 
                     <!-- Tab Content -->
                     <div class="tab-content" id="content1">
-                        <select id="species">
+                        <select id="species" name="species">
                             <option value="">-- Select a pet --</option>
                             <option value="africanGrey">African Grey Parrot</option>
                             <option value="angelfish">Angelfish</option>
@@ -142,30 +165,30 @@
             <div id="ageDiv">
                 <div class="tabs">
                     <!-- Tab2 Controls -->
-                    <input type="radio" id="tab3" name="tab2" checked>
-                    <label for="tab3">Age</label>
+                    <input type="radio" id="ageTab" name="tab2" checked>
+                    <label for="ageTab">Age</label>
 
-                    <input type="radio" id="tab4" name="tab2">
-                    <label for="tab4">Birthday</label>
+                    <input type="radio" id="birthdayTab" name="tab2">
+                    <label for="birthdayTab">Birthday</label>
 
                     <!-- Tab2 Content -->
                     <div class="tab-content" id="content3">
-                        <input  type="number" value="0" step="1" name="age" oninput="this.value = Math.floor(this.value)" id="years">
+                        <input  type="number" value="0" step="1" name="years" oninput="this.value = Math.floor(this.value)" id="years">
                         <span>years </span>
-                        <input  type="number" value="0" step="1" name="age" oninput="this.value = Math.floor(this.value)" id="months">
+                        <input  type="number" value="0" step="1" name="months" oninput="this.value = Math.floor(this.value)" id="months">
                         <span>months</span>
                     </div>
 
                     <div class="tab-content" id="content4">
-                        <input type="date" id="birthday">
+                        <input type="date" id="birthday" name="birthday">
                     </div>
                 </div>
                 
             </div>
-            <button id="submit">Submit</button>
-        </div>
-        <div id="result"></div>
+            <input type="submit" value="Submit" id="submit">
+        <form>
     </main>
+    <div id="result"></div>
     <section class="articles">
         <div class="article"><a href="greengrasschews.html">
             <img src="Images/Yard Burns.png" alt="Callie">

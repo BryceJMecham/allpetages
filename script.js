@@ -4,8 +4,8 @@ const age_years_element = document.getElementById("years");
 const age_months_element = document.getElementById("months");
 const result_div = document.getElementById("result");
 const life_expectancy_element = document.getElementById("lifeExpectancy");
-const tab1 = document.getElementById("tab1"); //Species tab
-const tab3 = document.getElementById("tab3"); //Age tab
+const speciesTab = document.getElementById("speciesTab"); //Species tab
+const ageTab = document.getElementById("ageTab"); //Age tab
 const birthday_element = document.getElementById("birthday");
 const animals = {
     africanGrey: 60,
@@ -89,9 +89,9 @@ submit.addEventListener("click", function(){
     result_div.innerText = "";
 
     // Sepecies tab checked
-    if (tab1.checked) {
+    if (speciesTab.checked) {
         // Age tab checked
-        if (tab3.checked) {
+        if (ageTab.checked) {
             age = Math.floor(100 / animals[species] * (parseFloat(years) + parseFloat(months / 12)));
             if (species in animals) {
             result_div.innerText = age + " years old";
@@ -114,7 +114,7 @@ submit.addEventListener("click", function(){
     // Life Expectancy tab checked
     else {
         // Age tab checked
-        if (tab3.checked) {
+        if (ageTab.checked) {
             age = Math.floor(100 / life_expectancy * (parseFloat(years) + parseFloat(months / 12)));
             result_div.innerText = age + " years old";
         }

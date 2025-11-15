@@ -1,5 +1,4 @@
 TO DO:
-    Contact us section
     New Favicon
 
 Reoccuring To Do:
@@ -12,3 +11,4 @@ To Do Eventually:
 
 Completed:
     Many tasks not listed here because I just started keeping a record of what was completed
+    Contact us section
