@@ -76,15 +76,16 @@
                 <div class="tabs">
                     <!-- Tab Controls -->
                     <input type="radio" id="speciesTab" name="tab" checked>
-                    <label for="speciesTab">Species</label>
-
+                    <label for="speciesTab" class="tabsLabel">Species</label>
+                    <!-- <p style="display: inline;">or</p> -->
                     <input type="radio" id="expectancyTab" name="tab">
-                    <label for="expectancyTab">Life Expectancy</label>
+                    <label for="expectancyTab" class="tabsLabel">Life Expectancy</label>
 
                     <!-- Tab Content -->
                     <div class="tab-content" id="content1">
+                        <label for="species">What is your pet's species?</label>
                         <select id="species" name="species">
-                            <option value="">-- Select a pet --</option>
+                            <option value="">-- Select a pet species --</option>
                             <option value="africanGrey">African Grey Parrot</option>
                             <option value="angelfish">Angelfish</option>
                             <option value="axolotl">Axolotl</option>
@@ -157,8 +158,11 @@
                     </div>
 
                     <div class="tab-content" id="content2">
-                        <input  type="number" value="0" step="1" name="lifeExpectancy" oninput="this.value = Math.floor(this.value)" id="lifeExpectancy">
-                        <span>years </span>
+                        <div>
+                            <label for="lifeExpectancy">What is your pet's life expectancy?</label>
+                            <input  type="number" value="0" step="1" name="lifeExpectancy" oninput="this.value = Math.floor(this.value)" id="lifeExpectancy">
+                            <span>years </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,20 +170,26 @@
                 <div class="tabs">
                     <!-- Tab2 Controls -->
                     <input type="radio" id="ageTab" name="tab2" checked>
-                    <label for="ageTab">Age</label>
+                    <label for="ageTab" class="tabsLabel">Age</label>
 
                     <input type="radio" id="birthdayTab" name="tab2">
-                    <label for="birthdayTab">Birthday</label>
+                    <label for="birthdayTab" class="tabsLabel" id="birthdayLabel">Birthday</label>
 
                     <!-- Tab2 Content -->
                     <div class="tab-content" id="content3">
-                        <input  type="number" value="0" step="1" name="years" oninput="this.value = Math.floor(this.value)" id="years">
-                        <span>years </span>
-                        <input  type="number" value="0" step="1" name="months" oninput="this.value = Math.floor(this.value)" id="months">
-                        <span>months</span>
+                        <div>
+                            <label for="years months">How old is your pet?</label>
+                            <input  type="number" value="0" step="1" name="years" oninput="this.value = Math.floor(this.value)" id="years">
+                            <span>years </span>
+                        </div>
+                        <div>
+                            <input  type="number" value="0" step="1" name="months" oninput="this.value = Math.floor(this.value)" id="months">
+                            <span>months</span>
+                        </div>
                     </div>
 
                     <div class="tab-content" id="content4">
+                        <label for="birthday">When is your pet's birthday?</label>
                         <input type="date" id="birthday" name="birthday">
                     </div>
                 </div>
@@ -188,6 +198,7 @@
             <input type="submit" value="Submit" id="submit">
         <form>
     </main>
+    <div id="warn"></div>
     <div id="result"></div>
     <section class="articles">
         <div class="article"><a href="greengrasschews.html">

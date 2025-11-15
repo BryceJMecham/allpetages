@@ -55,6 +55,7 @@ label {
   color: #2c5c52;
   display: block;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 select,
@@ -67,6 +68,7 @@ input[type="number"], input[type="text"], input[type="email"], textarea, input[t
   background-color: #f9fffd;
   color: #2d3a3a;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 250px;
 }
 
 select,
@@ -123,6 +125,11 @@ button:active, input[type="submit"]:active {
   font-size: 1.8rem;
   font-weight: 600;
   color: #2c5c52;
+}
+
+#warn {
+  margin-top: 20px;
+  padding: 10px;
 }
 
 /* ===== Articles Section ===== */
@@ -392,7 +399,7 @@ nav a:hover {
 }
 
 /* Tab Labels */
-.tabs label {
+.tabsLabel {
   display: inline-block;
   padding: 10px 20px;
   margin: 0px;
@@ -405,7 +412,7 @@ nav a:hover {
 }
 
 /* Hover effect */
-.tabs label:hover {
+.tabsLabel:hover {
   background: #d4d4d4;
 }
 
@@ -428,8 +435,14 @@ nav a:hover {
 /* Show the correct content when selected */
 #speciesTab:checked ~ #content1,
 #expectancyTab:checked ~ #content2,
-#ageTab:checked ~ #content3,
 #birthdayTab:checked ~ #content4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#ageTab:checked ~ #content3 {
   display: block;
 }
 
@@ -437,6 +450,16 @@ nav a:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse {
+  animation: pulse 3s ease-in-out 0s infinite;
+}
+
+@keyframes pulse {
+  0% {box-shadow: 0 0 5px 2px gold;}
+  50% {box-shadow: none;}
+  100% {box-shadow: 0 0 5px 2px gold;}
 }
 
 /* ===== Table ===== */
@@ -484,7 +507,12 @@ th, td {
   #form, .articles, .articlep, form {
     width: 90%;
     max-width: none;
-    margin: 50px 0;
+    margin: 0;
     padding: 20px 10px;
   }
+
+  #result, #sendResult, #warn {
+    margin-top: 0;
+  }
+
 }

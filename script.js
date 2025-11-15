@@ -3,9 +3,13 @@ const species_element = document.getElementById("species");
 const age_years_element = document.getElementById("years");
 const age_months_element = document.getElementById("months");
 const result_div = document.getElementById("result");
+const warn_div = document.getElementById("warn");
 const life_expectancy_element = document.getElementById("lifeExpectancy");
-const speciesTab = document.getElementById("speciesTab"); //Species tab
-const ageTab = document.getElementById("ageTab"); //Age tab
+const species_tab = document.getElementById("speciesTab");
+const age_tab = document.getElementById("ageTab");
+const birthday_tab = document.getElementById("birthdayTab");
+const birthday_label = document.getElementById("birthdayLabel");
+const life_expectancy_tab = document.getElementById("expectancyTab");
 const birthday_element = document.getElementById("birthday");
 const animals = {
     africanGrey: 60,
@@ -84,17 +88,22 @@ submit.addEventListener("click", function(){
     var months = age_months_element.value;
     var life_expectancy = life_expectancy_element.value;
     var age = 0; // age in human years
-    var age_decimal = calculateAgeDecimal(birthday_element.value);
+    var age_decimal = 0; // current age as a decimal
 
-    result_div.innerText = "";
+    resetDivs();
 
     // Sepecies tab checked
-    if (speciesTab.checked) {
+    if (species_tab.checked) {
         // Age tab checked
-        if (ageTab.checked) {
-            age = Math.floor(100 / animals[species] * (parseFloat(years) + parseFloat(months / 12)));
+        if (age_tab.checked) {
+            age_decimal = parseFloat(years) + parseFloat(months / 12);
+            age = Math.floor(100 / animals[species] * age_decimal);
             if (species in animals) {
             result_div.innerText = age + " years old";
+            if (parseFloat(age_decimal) > 1000) {  
+                warn_div.innerHTML = "<span style='color: red;'>Warning:</span> Age input is over 1,000 years old. Use the birthday tab if providing the date they were born. (Age tab is currently in use)";
+                birthday_label.classList.add('pulse');
+            }
             }
             else {
                 result_div.innerHTML = "Select species from list";
@@ -102,6 +111,7 @@ submit.addEventListener("click", function(){
         }
         // Birthday tab is checked
         else {
+            age_decimal = calculateAgeDecimal(birthday_element.value);
             age = Math.floor(100 / animals[species] * age_decimal);
             if (species in animals) {
             result_div.innerText = age + " years old";
@@ -114,12 +124,18 @@ submit.addEventListener("click", function(){
     // Life Expectancy tab checked
     else {
         // Age tab checked
-        if (ageTab.checked) {
-            age = Math.floor(100 / life_expectancy * (parseFloat(years) + parseFloat(months / 12)));
+        if (age_tab.checked) {
+            age_decimal = parseFloat(years) + parseFloat(months / 12);
+            age = Math.floor(100 / life_expectancy * age_decimal);
             result_div.innerText = age + " years old";
+            if (parseFloat(age_decimal) > 1000) {  
+                warn_div.innerHTML = "<span style='color: red;'>Warning:</span> Age input is over 1,000 years old. Use the birthday tab if providing the date they were born. (Age tab is currently in use)";
+                birthday_label.classList.add('pulse');
+            }
         }
         // Birthday tab is checked
         else {
+            age_decimal = calculateAgeDecimal(birthday_element.value);
             age = Math.floor(100 / life_expectancy * age_decimal);
             result_div.innerText = age + " years old";
         }
@@ -129,14 +145,33 @@ submit.addEventListener("click", function(){
 });
 
 species_element.addEventListener("change", function(){
-    result_div.innerText = "";
+    resetDivs();
 });
 age_years_element.addEventListener("change", function(){
-    result_div.innerText = "";
+    resetDivs();
 });
 age_months_element.addEventListener("change", function(){
-    result_div.innerText = "";
+    resetDivs();
 });
+species_tab.addEventListener("change", function() {
+    resetDivs();
+});
+age_tab.addEventListener("change", function() {
+    resetDivs();
+});
+life_expectancy_tab.addEventListener("change", function() {
+    resetDivs();
+});
+birthday_tab.addEventListener("change", function() {
+    resetDivs();
+});
+
+// Resets warning div, result div, and removes any applicable decoration
+function resetDivs() {
+    result_div.innerHTML = "";
+    warn_div.innerHTML = "";
+    birthday_label.classList.remove("pulse");
+}
 
 
 function calculateAgeDecimal(birthDate) {
